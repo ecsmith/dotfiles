@@ -22,7 +22,7 @@ else
 fi
 
 if [ ! -e /Applications/SkyFonts/SkyFonts.app ]; then
- open /usr/local/Caskroom/skyfonts/5.9.1.0/SkyFonts.app
+ open /usr/local/Caskroom/skyfonts/**/Install\ SkyFonts.app
 fi
 
 cp .bash_profile ~/.bash_profile
