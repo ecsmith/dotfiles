@@ -28,6 +28,7 @@ brew 'wget'
 brew 'git'
 brew 'git-lfs'
 brew 'httrack'
+brew 'yarn'
 
 cask 'handbrake'
 cask 'spotify'
