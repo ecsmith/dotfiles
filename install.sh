@@ -13,6 +13,7 @@ brew tap Homebrew/bundle
 # Homebrew Stufffff
 brew bundle
 
+# Create subl command
 which -s subl
 if [[ $? != 0 ]] ; then
     # Create subl soft link
@@ -25,7 +26,15 @@ if [ ! -e /Applications/SkyFonts/SkyFonts.app ]; then
  open /usr/local/Caskroom/skyfonts/**/Install\ SkyFonts.app
 fi
 
+# Move Sublime settings
+cp  ./sublime-settings/ ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
+
+
+
 cp .bash_profile ~/.bash_profile
 source ~/.bash_profile
+
+
+
 
 

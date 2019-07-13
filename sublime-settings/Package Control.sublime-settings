@@ -1,0 +1,21 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"Babel",
+		"CSS Unminifier",
+		"HTML-CSS-JS Prettify",
+		"JsPrettier",
+		"Material Theme",
+		"Package Control",
+		"Random Everything",
+		"React ES6 Snippets",
+		"Sass",
+		"SideBarEnhancements",
+		"Text Pastry"
+	]
+}
