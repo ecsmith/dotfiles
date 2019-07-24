@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Allow apps from unidentified developers
+sudo spctl --master-disable
+
+
 which -s brew
 if [[ $? != 0 ]] ; then
     # Install Homebrew
@@ -27,7 +31,8 @@ if [ ! -e /Applications/SkyFonts/SkyFonts.app ]; then
 fi
 
 # Move Sublime settings
-cp  ./sublime-settings/ ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
+# Install package control to see them take effect
+cp  ./sublime-settings/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
 
 
 
