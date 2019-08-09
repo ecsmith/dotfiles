@@ -34,7 +34,9 @@ fi
 # Install package control to see them take effect
 cp  ./sublime-settings/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
 
+unset PYTHONPATH
 
+xcode-select --install
 
 cp .bash_profile ~/.bash_profile
 source ~/.bash_profile
