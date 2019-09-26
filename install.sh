@@ -30,11 +30,13 @@ if [ ! -e /Applications/SkyFonts/SkyFonts.app ]; then
  open /usr/local/Caskroom/skyfonts/**/Install\ SkyFonts.app
 fi
 
+git config --global core.editor "sublime -n -w"
+
 # Move Sublime settings
 # Install package control to see them take effect
 cp  ./sublime-settings/* ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
 
-unset PYTHONPATH
+# unset PYTHONPATH
 
 xcode-select --install
 

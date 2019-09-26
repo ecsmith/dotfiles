@@ -31,6 +31,7 @@ brew 'httrack'
 brew 'yarn'
 brew 'gifsicle'
 
+cask 'gimp'
 cask 'google-chrome'
 cask 'firefox'
 cask 'transmission'

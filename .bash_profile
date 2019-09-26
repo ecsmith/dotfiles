@@ -23,19 +23,18 @@ alias ll='ls -FGlAhp'
 
 # <<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>>
 
-alias apacheEdit='sudo edit /etc/httpd/httpd.conf'      # apacheEdit:       Edit httpd.conf
-alias apacheRestart='sudo apachectl graceful'           # apacheRestart:    Restart Apache
-alias editHosts='sudo edit /etc/hosts'                  # editHosts:        Edit /etc/hosts file
-alias herr='tail /var/log/httpd/error_log'              # herr:             Tails HTTP error logs
-alias apacheLogs="less +F /var/log/apache2/error_log"   # Apachelogs:   Shows apache error logs
+alias gs='git status'
+alias gd='git diff'
+
 httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grabs headers from web page
 httpDebug () { /usr/bin/curl $@ -o /dev/null -w "dns: %{time_namelookup} connect: %{time_connect} pretransfer: %{time_pretransfer} starttransfer: %{time_starttransfer} total: %{time_total}\n" ; }
 
 # <<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>>
+[ -d ~/Documents/screenshots ] && echo "Skipping screenshots folder creation. \"~/Documents/screenshots exists.\" exists." || mkdir ~/Documents/screenshots
 defaults write com.apple.screencapture location ~/Documents/screenshots
 
-#Fiinder: show all hidden files
-defaults write com.apple.finder AppleShowAllFiles YES
+#Finder: show all hidden files
+defaults write com.apple.finder AppleShowAllFiles true
 
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -55,13 +54,15 @@ defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
 # When performing a search, search the current folder by default
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
+killall Finder
+
 # <<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>>
 
-export PYTHONPATH=/Users/ericsmith/Downloads/repos/caffe/python:/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 export DYLD_FALLBACK_LIBRARY_PATH=/usr/local/cuda/lib:/usr/local/lib/python2.7:$DYLD_FALLBACK_LIBRARY_PATH
 PATH=$PATH:./node-modules/.bin
 
-# ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/sublime
+[ -f "/usr/local/bin/subl" ] && echo "Skipping subl soft link creation. \"/usr/local/bin/subl\" exists." || ln -s /usr/local/bin/sublime /usr/local/bin/subl
 
 PROMPT_COMMAND='echo -ne "\033]0;––\007"'
 
@@ -77,4 +78,10 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 
-git config --global core.editor "subl -n -w"
+git config --global core.editor "sublime -n -w"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/smieric/google-cloud-sdk/path.bash.inc' ]; then . '/Users/smieric/google-cloud-sdk/path.bash.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/smieric/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/smieric/google-cloud-sdk/completion.bash.inc'; fi
