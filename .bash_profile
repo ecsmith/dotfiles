@@ -85,3 +85,26 @@ if [ -f '/Users/smieric/google-cloud-sdk/path.bash.inc' ]; then . '/Users/smieri
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/smieric/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/smieric/google-cloud-sdk/completion.bash.inc'; fi
+
+# Load rbenv automatically by appending
+# the following to ~/.bash_profile:
+eval "$(rbenv init -)"
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+
+# <<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>>
+# Run 'nvm use' automatically every time there's 
+# a .nvmrc file in the directory. 
+#
+enter_directory() {
+  if [[ $PWD == $PREV_PWD ]]; then
+    return
+  fi
+
+  PREV_PWD=$PWD
+  [[ -f ".nvmrc" ]] && nvm use
+}
+
+export PROMPT_COMMAND=enter_directory
+# <<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>>
